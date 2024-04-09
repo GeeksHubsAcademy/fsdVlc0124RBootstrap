@@ -22,13 +22,23 @@ function App() {
     }
   }, [characters]);
 
+  // const truncate = (name) => {
+
+  //   let charName = name
+  //   if(name.length > 5){
+  //     return charName.substring(0,5) + "..."
+  //   }
+
+  //   return charName
+  // }
+
   return (
     <>
       {characters.length > 0 ? (
         <Container fluid>
           <Row className="center">
             {characters.map((character) => {
-              return <Col sm={12} lg={6} key={character.id}>{character.name}</Col>;
+              return <Col sm={12} lg={6} key={character.id}>{character.name.length > 10 ? character.name.substring(0,10) + "..." : character.name}</Col>;
             })}
           </Row>
         </Container>
